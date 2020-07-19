@@ -12,6 +12,7 @@ const Upload = () => {
       defaultSelectedHeaderKey: "header3",
       haveSider: false,
       mainContent: <div></div>,
+      haveNew: false,
     }, titleBarHeaderConfig);
     setTitleBarConfig(config);
   }, []);

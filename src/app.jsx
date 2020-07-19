@@ -4,6 +4,8 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
 import List from "./pages/list/List";
 import Upload from "./pages/upload/Upload";
+import Music from "./pages/music/Music";
+import MusicPendant from "./pages/musicPendant/MusicPendant";
 
 const App = () => {
   return (
@@ -13,7 +15,9 @@ const App = () => {
         <Route path="/home" component={Home} />
         <Route path="/list" component={List} />
         <Route path="/upload" component={Upload} />
+        <Route path="/music" component={Music} />
       </BrowserRouter>
+      <MusicPendant />
     </div>
   );
 }
