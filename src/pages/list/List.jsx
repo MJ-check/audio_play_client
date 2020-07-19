@@ -3,36 +3,40 @@ import "./List.css";
 import { Spin } from "antd";
 import TitleBar from "../../component/TitleBar/TitleBar";
 import { titleBarHeaderConfig } from "../../lib/config";
-
-import { TestContent, TestContent1, TestContent2, TestContent3 } from "../../test/index";
+import apiCollectList from "../../lib/api/apiCollectList";
+import { list_image_url } from "../../lib/apiConfig";
 
 const List = () => {
   const [titleBarConfig, setTitleBarConfig] = useState(null);
 
   useEffect(() => {
-    const config = Object.assign({
-      defaultSelectedHeaderKey: "header2",
-      haveSider: true,
-      sider: [{                          
-        name: "Option 1",
-        key: "sider1",
-        content: <TestContent />,
-      }, {
-        name: "Option 2",
-        key: "sider2",
-        content: <TestContent1 />,
-      }, {
-        name: "Option 3",
-        key: "sider3",
-        content: <TestContent2 />,
-      }, {
-        name: "Option 4",
-        key: "sider4",
-        content: <TestContent3 />,
-      }],
-      defaultSelectedSiderKey: "sider1",
-    }, titleBarHeaderConfig);
-    setTitleBarConfig(config);
+    apiCollectList((data) => {
+      var sider = [];
+      if (data !== null) {
+        data.forEach((item, index) => {
+          sider.push({
+            name: <div>
+                    <img 
+                      className="sider-image"
+                      src={list_image_url + "/" + item.list_name + ".png"}
+                      alt={item.list_name}
+                    />
+                    {item.list_name}
+                  </div>,
+            id: item.list_id,
+            key: "sider" + index,
+            content: <div></div>,
+          });
+        });
+      }
+      const config = Object.assign({
+        defaultSelectedHeaderKey: "header2",
+        haveSider: true,
+        sider: sider,
+        defaultSelectedSiderKey: "sider0",
+      }, titleBarHeaderConfig);
+      setTitleBarConfig(config);
+    });
   }, []);
 
   return (

@@ -4,8 +4,6 @@ import { Spin } from "antd";
 import TitleBar from "../../component/TitleBar/TitleBar";
 import { titleBarHeaderConfig } from "../../lib/config";
 
-import { TestContent } from "../../test/index";
-
 const Home = () => {
   const [titleBarConfig, setTitleBarConfig] = useState(null);
 
@@ -13,7 +11,7 @@ const Home = () => {
     const config = Object.assign({
       defaultSelectedHeaderKey: "header1",
       haveSider: false,
-      mainContent: <TestContent />,
+      mainContent: <div></div>,
     }, titleBarHeaderConfig);
     setTitleBarConfig(config);
   }, []);

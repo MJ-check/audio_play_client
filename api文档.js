@@ -1,2 +1,0 @@
-/api/upload
-POST

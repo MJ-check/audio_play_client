@@ -12,3 +12,9 @@
   justify-content: center;
   align-items: center;
 }
+
+.sider-image {
+  width: 25px;
+  height: 25px;
+  margin: 0px 15px 3px 0px;
+}
