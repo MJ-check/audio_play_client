@@ -13,6 +13,7 @@ const Home = () => {
       defaultSelectedHeaderKey: "header1",
       haveSider: false,
       mainContent: <HomeContent />,
+      haveNew: false,
     }, titleBarHeaderConfig);
     setTitleBarConfig(config);
   }, []);

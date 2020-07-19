@@ -23,6 +23,7 @@
   padding: 24px 0px;
 }
 .sider {
+  height: calc(100% - 45px);
   overflow-y: scroll;
   background-color: white !important;
 }
@@ -30,7 +31,6 @@
   padding: 0px 24px;
   height: 100%;
 }
-
 .main-content-loading {
   width: 100%;
   height: 100%;
@@ -38,4 +38,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.have-new-container {
+  height: 45px;
+  padding: 0px 32px 0px 32px;
+  margin-right: 17px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: larger;
+  background-color: #1888f1;
+  color: white;
 }

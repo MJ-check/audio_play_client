@@ -5,6 +5,7 @@ import TitleBar from "../../component/TitleBar/TitleBar";
 import { titleBarHeaderConfig } from "../../lib/config";
 import apiCollectList from "../../lib/api/apiCollectList";
 import { list_image_url } from "../../lib/apiConfig";
+import ListContent from "./ListContent";
 
 const List = () => {
   const [titleBarConfig, setTitleBarConfig] = useState(null);
@@ -19,13 +20,13 @@ const List = () => {
                     <img 
                       className="sider-image"
                       src={list_image_url + "/" + item.list_name + ".png"}
-                      alt={item.list_name}
+                      alt=""
                     />
                     {item.list_name}
                   </div>,
             id: item.list_id,
             key: "sider" + index,
-            content: <div></div>,
+            content: <ListContent listMsg={item} />,
           });
         });
       }
@@ -34,6 +35,8 @@ const List = () => {
         haveSider: true,
         sider: sider,
         defaultSelectedSiderKey: "sider0",
+        haveNew: true,
+        handleHaveNew: <div></div>,
       }, titleBarHeaderConfig);
       setTitleBarConfig(config);
     });

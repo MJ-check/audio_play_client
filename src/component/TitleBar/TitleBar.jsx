@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./TitleBar.css";
 import "antd/dist/antd.css";
+import { PlusSquareOutlined } from '@ant-design/icons';
 import { Link } from "react-router-dom";
 import { Layout, Menu, Spin } from "antd";
 const { Header, Content, Sider } = Layout;
@@ -29,6 +30,8 @@ const { Header, Content, Sider } = Layout;
  *    },...],
  *    defaultSelectedSiderKey: "XXX",   // When haveSider is true
  *    mainContent: mainComponent,       // When haveSider is false
+ *    haveNew: true / false,
+ *    handleHaveNew: function / component  // when haveNew is true
  * }
  */
 
@@ -72,26 +75,34 @@ const TitleBar = ({ config }) => {
       </Header>
       <Content className="content">
         <Layout className="content-box">
-          {config.haveSider ? (
-            <Sider className="sider" width={200}>
-              <Menu
-                className="menu-box"
-                mode="inline"
-                defaultSelectedKeys={[config.defaultSelectedSiderKey]}
-              >
-                {config.sider.map((item, index) => {
-                  return (
-                    <Menu.Item 
-                      key={item.key}
-                      onClick={() => handleClickOnMenuItem(index)}
-                    >
-                      {item.name}
-                    </Menu.Item>
-                  );
-                })}
-              </Menu>
-            </Sider>
-          ) : ""}
+          <div>
+            {config.haveSider ? (
+              <Sider className="sider" width={200}>
+                <Menu
+                  className="menu-box"
+                  mode="inline"
+                  defaultSelectedKeys={[config.defaultSelectedSiderKey]}
+                >
+                  {config.sider.map((item, index) => {
+                    return (
+                      <Menu.Item 
+                        key={item.key}
+                        onClick={() => handleClickOnMenuItem(index)}
+                      >
+                        {item.name}
+                      </Menu.Item>
+                    );
+                  })}
+                </Menu>
+              </Sider>
+            ) : ""}
+            {config.haveNew ? (
+              <div className="have-new-container">
+                <PlusSquareOutlined style={{ fontSize: "25px" }}/>
+                新建收藏夹
+              </div>
+            ): ""}
+          </div>
           <Content className="main-content">
             {mainContent === null ? (
               <div className="main-content-loading">
