@@ -4,13 +4,13 @@ import apiAllMusic from "../../lib/api/apiAllMusic";
 import HomeCarousel from "../../component/HomeCarousel/HomeCarousel";
 import { music_image_url } from "../../lib/apiConfig";
 
-const MusicContent = () => {
+const MusicContent = ({ changeMusic }) => {
   const [musicContent, setMusicContent] = useState(null);
 
   useEffect(() => {
     apiAllMusic((data) => {
-      if (data !== null) { setMusicContent(data); }
-    })
+      setMusicContent(data);
+    });
   }, []);
 
   return (
@@ -22,6 +22,7 @@ const MusicContent = () => {
               <div 
                 className="home-music-content-music" 
                 key={"music" + item.music_id}
+                onClick={() => changeMusic(item.music_id)}
               >
                 <div className="music-content-image-container">
                   <img
@@ -47,11 +48,11 @@ const MusicContent = () => {
   );
 }
 
-const HomeContent = () => {
+const HomeContent = ({ changeMusic }) => {
   return (
     <div className="home-content-container">
       <HomeCarousel />
-      <MusicContent />
+      <MusicContent changeMusic={changeMusic}/>
     </div>
   );
 }

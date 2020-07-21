@@ -5,18 +5,18 @@ import TitleBar from "../../component/TitleBar/TitleBar";
 import { titleBarHeaderConfig } from "../../lib/config";
 import HomeContent from "./HomeContent";
 
-const Home = () => {
+const Home = ({ changeMusic }) => {
   const [titleBarConfig, setTitleBarConfig] = useState(null);
 
   useEffect(() =>{
     const config = Object.assign({
       defaultSelectedHeaderKey: "header1",
       haveSider: false,
-      mainContent: <HomeContent />,
+      mainContent: <HomeContent changeMusic={changeMusic}/>,
       haveNew: false,
     }, titleBarHeaderConfig);
     setTitleBarConfig(config);
-  }, []);
+  }, [changeMusic]);
 
   return (
     <div className="page-home">

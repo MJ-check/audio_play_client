@@ -9,16 +9,12 @@ import {
   FolderAddOutlined,
 } from '@ant-design/icons';
 
-const ListContent = ({ listMsg = null }) => {
+const ListContent = ({ listMsg = null, changeMusic }) => {
   const [musicList, setMusicList] = useState(null);
 
   useEffect(() => {
-    apiList(listMsg, (data) => {
-      if (data !== null) { 
-        setMusicList(data); 
-      } else {
-        setMusicList(null);
-      }
+    apiList(listMsg.list_id, (data) => {
+      setMusicList(data);
     });
   }, [listMsg]);
 

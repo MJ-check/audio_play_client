@@ -13,7 +13,10 @@ function apiLastMusic(callBack) {
       callBack(null);
     }
   })
-  .catch(err => console.error(err));
+  .catch(err => {
+    console.error(err);
+    callBack(null);
+  });
 }
 
 export default apiLastMusic;

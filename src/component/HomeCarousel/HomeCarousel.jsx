@@ -10,7 +10,7 @@ const HomeCarousel = () => {
 
   useEffect(() => {
     apiLastMusic((data) => {
-      if (data !== null) { setContent(data); }
+      setContent(data);
     });
   }, []);
 

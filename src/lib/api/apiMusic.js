@@ -1,8 +1,8 @@
-import { api_collect_list } from "../apiConfig";
+import { api_music } from "../apiConfig";
 
-function apiCollectList(callBack) {
-  fetch(api_collect_list, {
-    method: "GET"
+function apiMusic(music_id, callBack) {
+  fetch(api_music(music_id), {
+    method: "GET",
   })
   .then(res => res.json())
   .then(res => {
@@ -19,4 +19,4 @@ function apiCollectList(callBack) {
   });
 }
 
-export default apiCollectList;
+export default apiMusic;

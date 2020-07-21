@@ -3,7 +3,7 @@ const api_last_music = "/api/last_music";
 const api_music = (music_id) => { return "/api/music?id=" + music_id; };
 const api_upload_music = "/api/upload_music";
 const api_collect_list = "/api/collect_list";
-const api_list = "/api/list";
+const api_list = (list_id) => { return "/api/list?id=" + list_id; };
 const api_new_list = "/api/new_list";
 const api_status = (music_id) => { return "/api/status?id=" + music_id; };
 const api_add = "/api/add";

@@ -1,7 +1,16 @@
-.music-page {
+.musicOnShow-page {
   position: absolute;
-  z-index: 100;
   width: 100%;
   height: 100%;
+  z-index: 10;
   background-color: white;
+}
+
+.musicHide-page {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  bottom: 50px;
+  right: 50px;
+  border: 2px solid red;
 }

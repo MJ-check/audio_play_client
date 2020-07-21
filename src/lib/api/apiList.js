@@ -1,10 +1,8 @@
 import { api_list } from "../apiConfig";
 
-function apiList(body, callBack) {
-  fetch(api_list, {
-    method: "POST",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify(body)
+function apiList(list_id, callBack) {
+  fetch(api_list(list_id), {
+    method: "GET",
   })
   .then(res => res.json())
   .then(res => {
@@ -15,7 +13,10 @@ function apiList(body, callBack) {
       callBack(null);
     }
   })
-  .catch(err => console.error(err));
+  .catch(err => {
+    console.error(err);
+    callBack(null);
+  });
 }
 
 export default apiList;

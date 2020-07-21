@@ -7,7 +7,7 @@ import apiCollectList from "../../lib/api/apiCollectList";
 import { list_image_url } from "../../lib/apiConfig";
 import ListContent from "./ListContent";
 
-const List = () => {
+const List = ({ changeMusic }) => {
   const [titleBarConfig, setTitleBarConfig] = useState(null);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const List = () => {
                   </div>,
             id: item.list_id,
             key: "sider" + index,
-            content: <ListContent listMsg={item} />,
+            content: <ListContent listMsg={item} changeMusic={changeMusic}/>,
           });
         });
       }
@@ -40,7 +40,7 @@ const List = () => {
       }, titleBarHeaderConfig);
       setTitleBarConfig(config);
     });
-  }, []);
+  }, [changeMusic]);
 
   return (
     <div className="page-list">
