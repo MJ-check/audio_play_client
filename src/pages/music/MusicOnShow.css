@@ -1,0 +1,86 @@
+.musicOnShow-page {
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
+.musicOnShow-change-status {
+  position: absolute;
+  z-index: 1100;
+  width: 40px;
+  height: 40px;
+  top: 30px;
+  left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.musicOnShow-loading, 
+.musicOnShow-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.musicOnShow-background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.musicOnShow-background-opacity {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.musicOnShow-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.musicOnShow-image-container {
+  width: 500px;
+  height: 500px;
+  border-radius: 250px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.musicOnShow-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.musicOnShow-player-container {
+  position: absolute;
+  width: 100%;
+  bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.musicOnSHow-player-slider {
+  width: 60%;
+  margin-bottom: 15px;
+}

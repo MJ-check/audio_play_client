@@ -59,14 +59,15 @@ const ListContent = ({ listMsg = null, changeMusic }) => {
                     </div>
                     <div className="list-content-music-button">
                       <div className="list-content-button-container">
-                        <PlayCircleOutlined 
+                        <div 
                           className="list-content-button"
-                          style={{ fontSize: "25px" }} 
-                        />
-                        <FolderAddOutlined 
-                          className="list-content-button"
-                          style={{ fontSize: "28px" }}
-                        />
+                          onClick={() => changeMusic(item.music_id)}
+                        >
+                          <PlayCircleOutlined style={{ fontSize: "25px" }}/>
+                        </div>
+                        <div className="list-content-button">
+                          <FolderAddOutlined style={{ fontSize: "28px" }}/>
+                        </div>
                       </div>
                     </div>
                   </div>
