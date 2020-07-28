@@ -49,9 +49,13 @@
   margin-left: 15%;
   margin-right: 5%;
 }
-.list-content-list-text {
+.list-content-list-name {
   font-size: 3em;
   font-weight: bold;
+}
+.list-content-list-msg {
+  font-size: 1em;
+  font-weight: normal;
 }
 .list-content-music-container {
   width: 100%;

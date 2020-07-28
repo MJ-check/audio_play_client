@@ -15,6 +15,7 @@ const ListContent = ({ listMsg = null, changeMusic }) => {
   const [musicMsg, setMusicMsg] = useState(null);
 
   useEffect(() => {
+    console.log(listMsg);
     apiList(listMsg.list_id, (data) => {
       setMusicList(data);
     });
@@ -47,7 +48,12 @@ const ListContent = ({ listMsg = null, changeMusic }) => {
             alt={listMsg.list_name}
           />
           <div className="list-content-list-text">
-            {listMsg.list_name}
+            <div className="list-content-list-name">
+              {listMsg.list_name}
+            </div>
+            <div className="list-content-list-msg">
+              {listMsg.list_msg}
+            </div>
           </div>
         </div>
         <div className="list-content-music-container">
