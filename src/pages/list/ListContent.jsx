@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./ListContent.css";
 import { Spin } from "antd";
 import apiList from "../../lib/api/apiList";
+import CheckStatus from "../../component/CheckStatus/CheckStatus";
 import { list_image_url } from "../../lib/apiConfig";
 import { 
   PlayCircleOutlined,
@@ -11,12 +12,22 @@ import {
 
 const ListContent = ({ listMsg = null, changeMusic }) => {
   const [musicList, setMusicList] = useState(null);
+  const [musicMsg, setMusicMsg] = useState(null);
 
   useEffect(() => {
     apiList(listMsg.list_id, (data) => {
       setMusicList(data);
     });
   }, [listMsg]);
+  const closeCheckBox = () => {
+    apiList(listMsg.list_id, (data) => {
+      setMusicList(data);
+    });
+    setMusicMsg(null);
+  };
+  const openCheckBox = (music_msg) => {
+    setMusicMsg(music_msg);
+  };
 
   return (
     <div className="list-content-container">
@@ -65,7 +76,10 @@ const ListContent = ({ listMsg = null, changeMusic }) => {
                         >
                           <PlayCircleOutlined style={{ fontSize: "25px" }}/>
                         </div>
-                        <div className="list-content-button">
+                        <div 
+                          className="list-content-button"
+                          onClick={() => openCheckBox(item)}
+                        >
                           <FolderAddOutlined style={{ fontSize: "28px" }}/>
                         </div>
                       </div>
@@ -77,6 +91,11 @@ const ListContent = ({ listMsg = null, changeMusic }) => {
           )}
         </div>
       </div>
+      {musicMsg === null ? "" : (
+        <div className="list-content-check-status">
+          <CheckStatus music_msg={musicMsg} closeCheckBox={closeCheckBox}/>
+        </div>
+      )}
     </div>
   );
 }
