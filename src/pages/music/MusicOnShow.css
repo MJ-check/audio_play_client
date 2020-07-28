@@ -5,7 +5,6 @@
   height: 100%;
   background-color: white;
 }
-
 .musicOnShow-change-status {
   position: absolute;
   z-index: 1100;
@@ -18,7 +17,12 @@
   justify-content: center;
   align-items: center;
 }
-
+.musicOnShow-check-status-box {
+  position: absolute;
+  z-index: 1200;
+  width: 100%;
+  height: 100%;
+}
 .musicOnShow-loading, 
 .musicOnShow-background {
   position: absolute;
@@ -29,20 +33,17 @@
   justify-content: center;
   align-items: center;
 }
-
 .musicOnShow-background-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
 .musicOnShow-background-opacity {
   position: absolute;
   width: 100%;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.6);
 }
-
 .musicOnShow-container {
   position: absolute;
   width: 100%;
@@ -52,7 +53,6 @@
   justify-content: center;
   align-items: center;
 }
-
 .musicOnShow-image-container {
   width: 500px;
   height: 500px;
@@ -63,13 +63,11 @@
   justify-content: center;
   align-items: center;
 }
-
 .musicOnShow-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
 .musicOnShow-player-container {
   position: absolute;
   width: 100%;
@@ -79,8 +77,25 @@
   justify-content: center;
   align-items: center;
 }
-
 .musicOnSHow-player-slider {
   width: 60%;
   margin-bottom: 15px;
+}
+.musicOnShow-play-status {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.musicOnShow-play-status-play-button,
+.musicOnShow-play-status-check-status-button {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.musicOnShow-play-status-play-button {
+  margin-right: 100px;
 }

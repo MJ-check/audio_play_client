@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./MusicOnShow.css";
 import { Spin, Slider } from "antd";
+import CheckStatus from "../../component/CheckStatus/CheckStatus";
 import {
   ShrinkOutlined,
   PauseOutlined,
   CaretRightOutlined,
+  MenuUnfoldOutlined,
 } from '@ant-design/icons';
 
 const MusicOnShow = ({ 
@@ -14,8 +16,18 @@ const MusicOnShow = ({
   changePlayStatus = null, 
   maxTime = null,
   nowTime = null,
-  changePlayTime = null
+  changePlayTime = null,
+  music_msg=null
 }) => {
+  const [musicMsg, setMusicMsg] = useState(null);
+
+  const closeCheckBox = () => {
+    setMusicMsg(null);
+  };
+  const openCheckBox = () => {
+    setMusicMsg(music_msg);
+  };
+
   return (
     <div className="musicOnShow-page">
       <div 
@@ -26,6 +38,11 @@ const MusicOnShow = ({
       </div>
       {imageSrc !== null && playStatus !== null && maxTime !== null && nowTime !== null ? (
         <div>
+          {musicMsg === null ? "" : (
+            <div className="musicOnShow-check-status-box">
+              <CheckStatus music_msg={musicMsg} closeCheckBox={() => closeCheckBox()}/>
+            </div>
+          )}
           <div className="musicOnShow-background">
             <img 
               className="musicOnShow-background-image"
@@ -52,15 +69,23 @@ const MusicOnShow = ({
               onChange={(value) => changePlayTime(value)}
               tipFormatter={null}
             />
-            <div 
-              className="musicOnShow-play-status"
-              onClick={changePlayStatus}
-            >
-            {playStatus === true ? (
-              <PauseOutlined style={{ fontSize: "50px" }}/>
-            ) : (
-              <CaretRightOutlined style={{ fontSize: "50px" }}/>
-            )}
+            <div className="musicOnShow-play-status">
+              <div 
+                className="musicOnShow-play-status-play-button"
+                onClick={changePlayStatus}
+              >
+              {playStatus === true ? (
+                <PauseOutlined style={{ fontSize: "50px" }}/>
+              ) : (
+                <CaretRightOutlined style={{ fontSize: "50px" }}/>
+              )}
+              </div>
+              <div 
+                className="musicOnShow-play-status-check-status-button"
+                onClick={() => openCheckBox()}
+              >
+                <MenuUnfoldOutlined style={{ fontSize: "40px" }}/>
+              </div>
             </div>
           </div>
         </div>

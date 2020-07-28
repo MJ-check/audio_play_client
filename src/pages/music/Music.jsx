@@ -74,6 +74,7 @@ const Music = ({ musicStorage }) => {
           maxTime={player === null ? null : parseInt(player.duration)}
           nowTime={nowTime === null ? null : nowTime}
           changePlayTime={(time) => handelChangePlayTime(time)}
+          music_msg={musicMsg}
         />
       ) : (
         <MusicHide 
