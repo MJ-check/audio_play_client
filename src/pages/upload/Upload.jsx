@@ -3,6 +3,7 @@ import "./Upload.css";
 import { Spin } from "antd";
 import TitleBar from "../../component/TitleBar/TitleBar";
 import { titleBarHeaderConfig } from "../../lib/config";
+import UploadContent from "./UploadContent";
 
 const Upload = () => {
   const [titleBarConfig, setTitleBarConfig] = useState(null);
@@ -11,7 +12,7 @@ const Upload = () => {
     const config = Object.assign({
       defaultSelectedHeaderKey: "header3",
       haveSider: false,
-      mainContent: <div></div>,
+      mainContent: <UploadContent />,
       haveNew: false,
     }, titleBarHeaderConfig);
     setTitleBarConfig(config);

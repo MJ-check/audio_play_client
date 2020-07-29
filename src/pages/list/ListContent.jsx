@@ -6,7 +6,6 @@ import CheckStatus from "../../component/CheckStatus/CheckStatus";
 import { list_image_url } from "../../lib/apiConfig";
 import { 
   PlayCircleOutlined,
-  //PauseCircleOutlined,
   FolderAddOutlined,
 } from '@ant-design/icons';
 
@@ -15,7 +14,6 @@ const ListContent = ({ listMsg = null, changeMusic }) => {
   const [musicMsg, setMusicMsg] = useState(null);
 
   useEffect(() => {
-    console.log(listMsg);
     apiList(listMsg.list_id, (data) => {
       setMusicList(data);
     });
