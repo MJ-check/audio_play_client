@@ -9,7 +9,7 @@ const api_status = (music_id) => { return "/api/status?id=" + music_id; };
 const api_add = "/api/add";
 const api_remove = "/api/remove";
 const api_new_list = "/api/new_list";
-const api_update_list_image = "/api/update_list_image";
+const api_upload_list_image = "/api/upload_list_image";
 
 const music_file_url = "/public/music";
 const music_image_url = "/public/image";
@@ -27,7 +27,7 @@ export {
   api_status,
   api_add,
   api_remove,
-  api_update_list_image,
+  api_upload_list_image,
   music_file_url,
   music_image_url,
   list_image_url,

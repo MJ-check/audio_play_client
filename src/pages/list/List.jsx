@@ -6,6 +6,7 @@ import { titleBarHeaderConfig } from "../../lib/config";
 import apiCollectList from "../../lib/api/apiCollectList";
 import { list_image_url } from "../../lib/apiConfig";
 import ListContent from "./ListContent";
+import CreateNewList from "../../component/CreateNewList/CreateNewList";
 
 const List = ({ changeMusic }) => {
   const [titleBarConfig, setTitleBarConfig] = useState(null);
@@ -36,7 +37,7 @@ const List = ({ changeMusic }) => {
         sider: sider,
         defaultSelectedSiderKey: "sider0",
         haveNew: true,
-        handleHaveNew: <div></div>,
+        handleHaveNew: <CreateNewList />,
       }, titleBarHeaderConfig);
       setTitleBarConfig(config);
     });

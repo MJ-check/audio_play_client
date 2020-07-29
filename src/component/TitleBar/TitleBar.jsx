@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./TitleBar.css";
 import "antd/dist/antd.css";
-import { PlusSquareOutlined } from '@ant-design/icons';
 import { Link } from "react-router-dom";
 import { Layout, Menu, Spin } from "antd";
 const { Header, Content, Sider } = Layout;
@@ -98,8 +97,7 @@ const TitleBar = ({ config }) => {
             ) : ""}
             {config.haveNew ? (
               <div className="have-new-container">
-                <PlusSquareOutlined style={{ fontSize: "25px" }}/>
-                新建收藏夹
+                {config.handleHaveNew}
               </div>
             ): ""}
           </div>

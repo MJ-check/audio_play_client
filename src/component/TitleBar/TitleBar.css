@@ -41,13 +41,5 @@
 }
 .have-new-container {
   height: 45px;
-  padding: 0px 32px 0px 32px;
-  margin-right: 17px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  font-size: larger;
-  background-color: #1888f1;
-  color: white;
+  width: 100%;
 }

@@ -30,6 +30,7 @@ const UploadContent = () => {
 
   const handleMusicFileChange = (music_file) => {
     if (!music_file || music_file.type !== "audio/mp3") {
+      setMusicFile(null);
       message.error("音频文件必须是MP3格式文件！");
     } else {
       setMusicFile(music_file);
@@ -38,6 +39,7 @@ const UploadContent = () => {
   };
   const handleMusicImageChange = (image_file) => {
     if (!image_file || image_file.type !== "image/png") {
+      setImageFile(null);
       message.error("图片文件必须是PNG格式文件！");
     } else {
       setImageFile(image_file);
@@ -57,16 +59,16 @@ const UploadContent = () => {
     setSignerName(singer_name);
   };
   const handleSubmitCheck = () => {
-    if (musicFile === null) {
+    if (!musicFile) {
       message.error("请选择音频文件！");
       return ;
-    } else if (imageFile === null) {
+    } else if (!imageFile) {
       message.error("请选择图片文件！");
       return ;
-    } else if (musicName === null) {
+    } else if (!musicName) {
       message.error("请输入音乐名！");
       return ;
-    } else if (signerName === null) {
+    } else if (!signerName) {
       message.error("请输入歌手名！");
       return ;
     } else {
@@ -98,6 +100,11 @@ const UploadContent = () => {
         message.error("音乐上传失败！");
       }
     });
+    setMusicFile(null);
+    setMusicName(null);
+    setSignerName(null);
+    setImageFile(null);
+    setImageOnShow(null);
   }
 
   return (
