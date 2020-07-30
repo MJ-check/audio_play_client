@@ -31,5 +31,3 @@
    ```powershell
    npm run build
    ```
-
-   
