@@ -17,7 +17,8 @@
   justify-content: center;
   align-items: center;
 }
-.musicOnShow-check-status-box {
+.musicOnShow-check-status-box,
+.musicOnSHow-update-music-image {
   position: absolute;
   z-index: 1200;
   width: 100%;
@@ -88,7 +89,8 @@
   align-items: center;
 }
 .musicOnShow-play-status-play-button,
-.musicOnShow-play-status-check-status-button {
+.musicOnShow-play-status-check-status-button,
+.musicOnShow-play-status-setting-button {
   width: 50px;
   height: 50px;
   display: flex;
@@ -98,4 +100,7 @@
 }
 .musicOnShow-play-status-play-button {
   margin-right: 100px;
+}
+.musicOnShow-play-status-setting-button {
+  margin-right: 120px;  
 }

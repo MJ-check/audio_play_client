@@ -115,13 +115,13 @@ const NewListContainer = ({ handleHideContainer }) => {
           </div>
           <div className="NewListContainer-image-content">
             <div className="NewListContainer-image-upload-review">
-            {listImage === null ? "" : (
-              <img 
-                className="NewListContainer-image-upload-review-pic"
-                alt=""
-                src={imageOnShow}
-              />
-            )}
+              {listImage === null ? "" : (
+                <img 
+                  className="NewListContainer-image-upload-review-pic"
+                  alt=""
+                  src={imageOnShow}
+                />
+              )}
             </div>
             <div className="NewListContainer-image-content-text">
               <div className="NewListContainer-image-content-text-icon">

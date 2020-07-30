@@ -42,6 +42,7 @@ const Music = ({ musicStorage }) => {
         setPlayStatus(null);
       }
     });
+  // eslint-disable-next-line
   }, [musicStorage]);
   const handleChangeStatus = () => {
     setOnShow(!onShow);
