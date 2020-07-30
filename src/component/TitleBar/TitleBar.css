@@ -1,0 +1,60 @@
+.title-bar {
+  width: 100%;
+  height: 100%;
+}
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.logo {
+  width: 185px;
+  height: 63px;
+  margin: 0px 28px 0px 0;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.logo-image {
+  height: 110%;
+  width: auto;
+}
+.top-menu-item {
+  width: 180px;
+  font-size: 20px;
+  text-align: center;
+}
+.content {
+  height: 100%;
+  padding: 0px 50px;
+}
+.content-box {
+  height: 100%;
+  padding: 24px 0px;
+}
+.sider {
+  height: calc(100% - 45px);
+  overflow-y: scroll;
+  background-color: white !important;
+}
+.main-content {
+  padding: 0px 24px;
+  height: 100%;
+}
+.main-content-loading {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.have-new-container {
+  height: 45px;
+  width: 100%;
+}
