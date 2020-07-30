@@ -3,6 +3,7 @@ import "./TitleBar.css";
 import "antd/dist/antd.css";
 import { Link } from "react-router-dom";
 import { Layout, Menu, Spin } from "antd";
+import logo2 from "../../image/logo2.png";
 const { Header, Content, Sider } = Layout;
 
 /**
@@ -55,7 +56,13 @@ const TitleBar = ({ config }) => {
   return (
     <Layout className="title-bar">
       <Header className="header">
-        <div className="logo" />
+        <div className="logo">
+          <img
+            className="logo-image"
+            alt=""
+            src={logo2}
+          />
+        </div>
         <Menu 
           theme="dark" 
           mode="horizontal" 
