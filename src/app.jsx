@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom";
 import "./app.css";
 //import Login from "./pages/login/Login";
 import Home from "./pages/home/Home";
@@ -20,12 +20,12 @@ const App = () => {
 
   return (
     <div>
-      <BrowserRouter>
+      <HashRouter>
         <Route exact path="/" render={() => (<Home changeMusic={handleChangeMusic}/>)} />
         <Route path="/home" render={() => (<Home changeMusic={handleChangeMusic}/>)} />
         <Route path="/list" render={() => (<List changeMusic={handleChangeMusic}/>)} />
         <Route path="/upload" render={()=> (<Upload changeMusic={handleChangeMusic}/>)} />
-      </BrowserRouter>
+      </HashRouter>
       <Music musicStorage={musicStorage}/>
     </div>
   );
