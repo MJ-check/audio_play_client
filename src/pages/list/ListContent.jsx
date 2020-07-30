@@ -3,15 +3,18 @@ import "./ListContent.css";
 import { Spin } from "antd";
 import apiList from "../../lib/api/apiList";
 import CheckStatus from "../../component/CheckStatus/CheckStatus";
+import UpdateList from "../../component/UpdateList/UpdateList";
 import { list_image_url } from "../../lib/apiConfig";
 import { 
   PlayCircleOutlined,
   FolderAddOutlined,
+  EditOutlined,
 } from '@ant-design/icons';
 
 const ListContent = ({ listMsg = null, changeMusic }) => {
   const [musicList, setMusicList] = useState(null);
   const [musicMsg, setMusicMsg] = useState(null);
+  const [updateMsg, setUpdateMsg] = useState(null);
 
   useEffect(() => {
     apiList(listMsg.list_id, (data) => {
@@ -26,6 +29,15 @@ const ListContent = ({ listMsg = null, changeMusic }) => {
   };
   const openCheckBox = (music_msg) => {
     setMusicMsg(music_msg);
+  };
+  const openUpdateBox = () => {
+    setUpdateMsg(listMsg);
+  };
+  const closeUpdateBox = (status) => {
+    setUpdateMsg(null);
+    if (status === true) {
+      window.location.reload();
+    }
   };
 
   return (
@@ -48,8 +60,15 @@ const ListContent = ({ listMsg = null, changeMusic }) => {
           <div className="list-content-list-text">
             <div className="list-content-list-name">
               {listMsg.list_name}
+              <div className="list-content-edit-icon">
+                <EditOutlined
+                  className="list-content-edit-icon-button" 
+                  style={{ fontSize: "20px" }}
+                  onClick={() => openUpdateBox()}
+                />
+              </div>
             </div>
-            <div className="list-content-list-msg">
+            <div className="list-content-list-msg-text">
               {listMsg.list_msg}
             </div>
           </div>
@@ -97,7 +116,18 @@ const ListContent = ({ listMsg = null, changeMusic }) => {
       </div>
       {musicMsg === null ? "" : (
         <div className="list-content-check-status">
-          <CheckStatus music_msg={musicMsg} closeCheckBox={closeCheckBox}/>
+          <CheckStatus 
+            music_msg={musicMsg} 
+            closeCheckBox={closeCheckBox}
+          />
+        </div>
+      )}
+      {updateMsg === null ? "" : (
+        <div className="list-content-update-msg">
+          <UpdateList 
+            list_msg={updateMsg}
+            closeUpdateBox={closeUpdateBox}
+          />
         </div>
       )}
     </div>

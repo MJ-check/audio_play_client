@@ -10,6 +10,7 @@ const api_add = "/api/add";
 const api_remove = "/api/remove";
 const api_new_list = "/api/new_list";
 const api_upload_list_image = "/api/upload_list_image";
+const api_update_list_msg = "/api/update_list_msg";
 
 const music_file_url = "/public/music";
 const music_image_url = "/public/image";
@@ -28,6 +29,7 @@ export {
   api_add,
   api_remove,
   api_upload_list_image,
+  api_update_list_msg,
   music_file_url,
   music_image_url,
   list_image_url,

@@ -31,11 +31,12 @@ const UpdateMusicImage = ({ music_msg, closeUpdateBox }) => {
         setImageOnShow(event.target.result);
       }
     }
-  }
+  };
   const handleSubmit = () => {
     if (music_msg) {
       if (!musicImage) {
         message.error("请选择图片文件！");
+        setLoading(false);
         return ;
       } else {
         const new_music_image = new File([musicImage], music_msg.music_name + ".png", {type: musicImage.type});
@@ -49,13 +50,14 @@ const UpdateMusicImage = ({ music_msg, closeUpdateBox }) => {
             setLoading(false);
             message.error("更新音乐图片失败！");
           }
-        })
+        });
       }
     } else {
       message.error("未知错误！");
       setLoading(false);
+      return ;
     }
-  }
+  };
 
   return (
     <div className="UpdateMusicImage-page">
