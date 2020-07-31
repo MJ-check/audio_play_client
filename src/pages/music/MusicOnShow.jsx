@@ -59,7 +59,7 @@ const MusicOnShow = ({
           )}
           <div className="musicOnShow-background">
             <img 
-              className="musicOnShow-background-image"
+              className="musicOnShow-background-image query-image"
               src={imageSrc}
               alt=""
             />
@@ -68,7 +68,7 @@ const MusicOnShow = ({
           <div className="musicOnShow-container">
             <div className="musicOnShow-image-container">
               <img
-                className="musicOnShow-image"
+                className="musicOnShow-image query-image"
                 src={imageSrc}
                 alt=""
               />

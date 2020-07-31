@@ -117,7 +117,7 @@ const NewListContainer = ({ handleHideContainer }) => {
             <div className="NewListContainer-image-upload-review">
               {listImage === null ? "" : (
                 <img 
-                  className="NewListContainer-image-upload-review-pic"
+                  className="NewListContainer-image-upload-review-pic query-image"
                   alt=""
                   src={imageOnShow}
                 />

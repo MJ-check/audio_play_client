@@ -29,7 +29,7 @@ const HomeCarousel = () => {
                 key={"carousel" + item.music_id}
               >
                 <img
-                  className="carousel-piece-image"
+                  className="carousel-piece-image query-image"
                   src={music_image_url + "/" + item.music_name + ".png"}
                   alt={item.music_name}
                 />

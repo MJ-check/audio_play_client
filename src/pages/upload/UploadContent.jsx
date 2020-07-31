@@ -147,7 +147,7 @@ const UploadContent = () => {
           <div className="Upload-music-image-on-show">
           {imageOnShow === null ? "" : (
             <img
-              className="Upload-music-image-on-show-pic"
+              className="Upload-music-image-on-show-pic query-image"
               src={imageOnShow}
               alt=""
             />

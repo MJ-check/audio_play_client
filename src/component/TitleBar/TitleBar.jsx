@@ -58,7 +58,7 @@ const TitleBar = ({ config }) => {
       <Header className="header">
         <div className="logo">
           <img
-            className="logo-image"
+            className="logo-image query-image"
             alt=""
             src={logo2}
           />

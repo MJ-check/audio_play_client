@@ -132,7 +132,7 @@ const UpdateListImage = ({ list_msg, closeUpdateBox }) => {
         <div className="UpdateListImage-image-on-show">
           {imageOnShow === null ? "" : (
             <img
-              className="UpdateListImage-image-content"
+              className="UpdateListImage-image-content query-image"
               alt=""
               src={imageOnShow}
             />
