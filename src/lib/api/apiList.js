@@ -1,6 +1,10 @@
 import { api_list } from "../apiConfig";
 
 function apiList(list_id, callBack) {
+  if (!list_id) {
+    callBack(null);
+    return ;
+  }
   fetch(api_list(list_id), {
     method: "GET",
   })

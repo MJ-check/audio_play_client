@@ -1,6 +1,10 @@
 import { api_add } from "../apiConfig";
 
 function apiAdd(music_id, list_id, callBack) {
+  if (!music_id || !list_id) {
+    callBack(null);
+    return ;
+  }
   fetch(api_add, {
     method: "POST",
     headers: {

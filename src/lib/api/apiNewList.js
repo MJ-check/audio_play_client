@@ -1,6 +1,10 @@
 import { api_new_list } from "../apiConfig";
 
 function apiNewList(list_name, list_msg, callBack) {
+  if (!list_name || !list_msg) {
+    callBack(null);
+    return ;
+  }
   fetch(api_new_list, {
     method: "POST",
     headers: {

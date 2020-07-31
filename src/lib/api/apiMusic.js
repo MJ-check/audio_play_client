@@ -1,6 +1,10 @@
 import { api_music } from "../apiConfig";
 
 function apiMusic(music_id, callBack) {
+  if (!music_id) {
+    callBack(null);
+    return ;
+  }
   fetch(api_music(music_id), {
     method: "GET",
   })
