@@ -26,7 +26,8 @@ const Music = ({ musicStorage }) => {
           setPlayStatus(false);
         });
         audio.addEventListener("timeupdate", (event) => {
-          setNowTime(parseInt(event.path[0].currentTime));
+          const new_time = event.path ? event.path[0].currentTime : event.target.currentTime;
+          setNowTime(parseInt(new_time));
         });
         if (isFirstOpen === true || isFirstOpen === null) {
           audio.pause();

@@ -19,7 +19,7 @@ const List = ({ changeMusic }) => {
           sider.push({
             name: <div>
                     <img 
-                      className="sider-image"
+                      className="sider-image query-image"
                       src={list_image_url + "/" + item.list_name + ".png"}
                       alt=""
                     />

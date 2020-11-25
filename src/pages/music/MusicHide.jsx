@@ -25,7 +25,7 @@ const MusicHide = ({
         <div className="musicHide-container">
           <div className="musicHide-image-container">
             <img 
-              className="musicHide-image"
+              className="musicHide-image query-image"
               src={imageSrc}
               alt=""
             />

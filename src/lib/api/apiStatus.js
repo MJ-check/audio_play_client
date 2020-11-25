@@ -1,6 +1,10 @@
 import { api_status } from "../apiConfig";
 
 function apiStatus(music_id, callBack) {
+  if (!music_id) {
+    callBack(null);
+    return ;
+  }
   fetch(api_status(music_id), {
     method: "GET"
   })

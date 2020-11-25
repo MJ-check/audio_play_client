@@ -69,7 +69,7 @@ const UpdateMusicImage = ({ music_msg, closeUpdateBox }) => {
           <div className="UpdateMusicImage-image-on-show">
             {imageOnShow === null ? "" : (
               <img 
-                className="UpdateMusicImage-image"
+                className="UpdateMusicImage-image query-image"
                 alt=""
                 src={imageOnShow}
               />

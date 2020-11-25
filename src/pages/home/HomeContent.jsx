@@ -26,7 +26,7 @@ const MusicContent = ({ changeMusic }) => {
               >
                 <div className="music-content-image-container">
                   <img
-                    className="music-content-image"
+                    className="music-content-image query-image"
                     src={music_image_url + "/" + item.music_name + ".png"}
                     alt={item.music_name}
                   />

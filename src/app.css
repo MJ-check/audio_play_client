@@ -1,3 +1,4 @@
 img {
   -webkit-user-drag: none;
+  object-fit: cover;
 }

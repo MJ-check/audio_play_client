@@ -1,6 +1,10 @@
 import { api_update_list_msg } from "../apiConfig";
 
 function apiUpdateListMsg(list_id, list_new_msg, callBack) {
+  if (!list_id || !list_new_msg) {
+    callBack(null);
+    return ;
+  }
   fetch(api_update_list_msg, {
     method: "POST",
     headers: {

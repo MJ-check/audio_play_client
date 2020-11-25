@@ -1,6 +1,10 @@
 import { api_remove } from "../apiConfig";
 
 function apiRemove(music_id, list_id, callBack) {
+  if (!music_id || !list_id) {
+    callBack(null);
+    return ;
+  }
   fetch(api_remove, {
     method: "POST",
     headers: {

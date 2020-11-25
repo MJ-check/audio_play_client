@@ -44,7 +44,7 @@ const ListContent = ({ listMsg = null, changeMusic }) => {
     <div className="list-content-container">
       <div className="list-content-background-container">
         <img
-          className="list-content-background"
+          className="list-content-background query-image"
           src={list_image_url + "/" + listMsg.list_name + ".png"}
           alt={listMsg.list_name}
         />
