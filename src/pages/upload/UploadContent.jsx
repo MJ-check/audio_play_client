@@ -29,14 +29,25 @@ const UploadContent = () => {
   }, []);
 
   const handleMusicFileChange = (music_file) => {
-    if (!music_file || music_file.type !== "audio/mp3") {
+    if (!music_file) {
       setMusicFile(null);
-      message.error("音频文件必须是MP3格式文件！");
+      message.error("请选择MP3音频文件！");
     } else {
-      setMusicFile(music_file);
-      message.success("音频文件已选中为 " + music_file.name);
+      const music_file_type = music_file.type;
+      const music_file_name = music_file.name;
+
+      /* 满足条件 1：是音频文件；2：尾缀是mp3 */
+      const type_check = /audio/.test(music_file_type) && music_file_name.split(".").slice(-1)[0] === "mp3";
+      if (!type_check) {
+        setMusicFile(null);
+        message.error("音频文件必须是MP3格式文件！");
+      } else {
+        setMusicFile(music_file);
+        message.success("音频文件已选中为 " + music_file.name);
+      }
     }
   };
+
   const handleMusicImageChange = (image_file) => {
     if (!image_file || image_file.type !== "image/png") {
       setImageFile(null);
@@ -52,12 +63,15 @@ const UploadContent = () => {
       }
     }
   };
+
   const handleMusicNameChange = (music_name) => {
     setMusicName(music_name);
   };
+
   const handleSingerNameChange = (singer_name) => {
     setSignerName(singer_name);
   };
+
   const handleSubmitCheck = () => {
     if (!musicFile) {
       message.error("请选择音频文件！");
@@ -76,10 +90,12 @@ const UploadContent = () => {
       setLoading(true);
     }
   };
+
   const handleSubmit = () => {
     const file_name = musicName + "--" + signerName;
     const submit_music_file = new File([musicFile], file_name + ".mp3", {type: musicFile.type});
     const submit_image_file = new File([imageFile], file_name + ".png", {type: imageFile.type});
+
     const form_data_for_music = new FormData();
     form_data_for_music.append("music_file", submit_music_file);
     const form_data_for_image = new FormData();
@@ -100,6 +116,7 @@ const UploadContent = () => {
         message.error("音乐上传失败！");
       }
     });
+    
     setMusicFile(null);
     setMusicName(null);
     setSignerName(null);
