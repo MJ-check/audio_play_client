@@ -6,16 +6,33 @@ import Home from "./pages/home/Home";
 import List from "./pages/list/List";
 import Upload from "./pages/upload/Upload";
 import Music from "./pages/music/Music";
+import { 
+  initBeforeUnloadFunctionList, 
+  carryBeforeUnloadFunction 
+} from "./utils/handleBeforeUnload"
 
 const App = () => {
-  const [musicStorage, setMusicStorage] = useState(window.localStorage.getItem("music_id"));
+  const [musicOnPlay, setMusicOnPlay] = useState(JSON.parse(window.localStorage.getItem("musicOnPlay")));
 
   useEffect(() => {
-    setMusicStorage(window.localStorage.getItem("music_id"));
+    // 浏览器关闭时间初始化
+    initBeforeUnloadFunctionList();
+    window.onbeforeunload = e => {
+      carryBeforeUnloadFunction();
+      return null;
+    };
   }, []);
-  const handleChangeMusic = (music_id) => {
-    window.localStorage.setItem("music_id", music_id);
-    setMusicStorage(music_id);
+
+  const handleChangeMusic = musicMsg => {
+    if ( typeof musicMsg === "object" 
+         && typeof musicMsg.music_id === "number" 
+         && typeof musicMsg.music_name === "string" 
+    ) {
+      window.localStorage.setItem("musicOnPlay", JSON.stringify(musicMsg));
+      setMusicOnPlay(musicMsg);
+    } else {
+      console.error("Parameter Type error!");
+    }
   }
 
   return (
@@ -26,7 +43,10 @@ const App = () => {
         <Route path="/list" render={() => (<List changeMusic={handleChangeMusic}/>)} />
         <Route path="/upload" render={()=> (<Upload changeMusic={handleChangeMusic}/>)} />
       </HashRouter>
-      <Music musicStorage={musicStorage}/>
+      <Music 
+        musicOnPlay={musicOnPlay}
+        onChangeMusic={handleChangeMusic}
+      />
     </div>
   );
 }

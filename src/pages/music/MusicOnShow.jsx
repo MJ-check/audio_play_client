@@ -13,13 +13,12 @@ import {
 
 const MusicOnShow = ({ 
   changeStatus = null, 
-  imageSrc = null, 
+  musicOnPlay = null, 
   playStatus = null, 
   changePlayStatus = null, 
   maxTime = null,
   nowTime = null,
   changePlayTime = null,
-  music_msg=null
 }) => {
   const [musicMsg, setMusicMsg] = useState(null);
   const [updateMsg, setUpdateMsg] = useState(null);
@@ -28,10 +27,10 @@ const MusicOnShow = ({
     setMusicMsg(null);
   };
   const openCheckBox = () => {
-    setMusicMsg(music_msg);
+    setMusicMsg(musicOnPlay);
   };
   const openUpdateBox = () => {
-    setUpdateMsg(music_msg);
+    setUpdateMsg(musicOnPlay);
   };
   const closeUpdateBox = () => {
     setUpdateMsg(null);
@@ -45,7 +44,7 @@ const MusicOnShow = ({
       >
         <ShrinkOutlined style={{ fontSize: "40px" }}/>
       </div>
-      {imageSrc !== null && playStatus !== null && maxTime !== null && nowTime !== null ? (
+      {musicOnPlay !== null && playStatus !== null ? (
         <div>
           {musicMsg === null ? "" : (
             <div className="musicOnShow-check-status-box">
@@ -60,7 +59,7 @@ const MusicOnShow = ({
           <div className="musicOnShow-background">
             <img 
               className="musicOnShow-background-image query-image"
-              src={imageSrc}
+              src={"/public/image/" + musicOnPlay.music_name + ".png"}
               alt=""
             />
             <div className="musicOnShow-background-opacity"></div>
@@ -69,7 +68,7 @@ const MusicOnShow = ({
             <div className="musicOnShow-image-container">
               <img
                 className="musicOnShow-image query-image"
-                src={imageSrc}
+                src={"/public/image/" + musicOnPlay.music_name + ".png"}
                 alt=""
               />
             </div>

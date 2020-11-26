@@ -95,7 +95,7 @@ const ListContent = ({ listMsg = null, changeMusic }) => {
                       <div className="list-content-button-container">
                         <div 
                           className="list-content-button"
-                          onClick={() => changeMusic(item.music_id)}
+                          onClick={() => changeMusic(item)}
                         >
                           <PlayCircleOutlined style={{ fontSize: "25px" }}/>
                         </div>

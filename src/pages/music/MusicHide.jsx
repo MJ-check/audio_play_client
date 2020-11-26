@@ -9,7 +9,7 @@ import {
 
 const MusicHide = ({ 
   changeStatus = null,
-  imageSrc = null,
+  musicOnPlay = null,
   playStatus = null,
   changePlayStatus = null
 }) => {
@@ -21,12 +21,12 @@ const MusicHide = ({
       >
         <ArrowsAltOutlined style={{ fontSize: "30px" }}/>
       </div>
-      {imageSrc !== null && playStatus !== null ? (
+      {musicOnPlay !== null && playStatus !== null ? (
         <div className="musicHide-container">
           <div className="musicHide-image-container">
             <img 
               className="musicHide-image query-image"
-              src={imageSrc}
+              src={"/public/image/" + musicOnPlay.music_name + ".png"}
               alt=""
             />
           </div>
