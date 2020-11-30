@@ -42,7 +42,7 @@ const Music = ({
         setPlayStatus(true);
       }
       setPlayer(audio);
-    } else {
+    } else if ( isFirstOpen === false ) {
       console.error("Parameter musicOnPlay equals null!");
     }
   // eslint-disable-next-line

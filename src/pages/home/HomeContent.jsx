@@ -22,7 +22,7 @@ const MusicContent = ({ changeMusic }) => {
               <div 
                 className="home-music-content-music" 
                 key={"music" + item.music_id}
-                onClick={() => changeMusic(item)}
+                onClick={() => changeMusic({ musicMsg: item, })}
               >
                 <div className="music-content-image-container">
                   <img

@@ -5,6 +5,8 @@ import {
   CloudUploadOutlined,
 } from '@ant-design/icons';
 
+const allPage = ["home", "list", "upload"];
+
 const titleBarHeaderConfig = {
   header: [{
     title: <div><HomeOutlined style={{ fontSize: "20px" }}/>主页</div>,
@@ -19,6 +21,9 @@ const titleBarHeaderConfig = {
     key: "header3",
     link: "/upload",
   }],
-}
+};
 
-export { titleBarHeaderConfig };
+export { 
+  titleBarHeaderConfig,
+  allPage,
+};
