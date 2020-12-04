@@ -31,3 +31,13 @@
    ```powershell
    npm run build
    ```
+
+## 相关项目链接
+
+Audio Play 后台项目：Audio Play Server
+
+<https://github.com/MJ-check/audio_play_server>
+
+Audio Play Mobile端项目：Audio Play Mobile
+
+<https://github.com/MJ-check/audio_play_mobile>
