@@ -19,13 +19,17 @@ const playListOperation = ( list, operation, value ) => {
   switch ( operation ) {
     case "add":       // 播放列表末尾加入一首歌曲，value：object--音乐信息
       if ( new_list.length < MAX_LENGTH ) {
+        var key = false;
         new_list.forEach(item => {
           if ( item.music_id === value.music_id )
-            return "exist";
+            key = true;
         });
-        new_list.push(JSON.parse(JSON.stringify(value)));
+        if ( key === true ) 
+          return "已存在";
+        else
+          new_list.push(JSON.parse(JSON.stringify(value)));
       } else {
-        return "overflow";
+        return "超过最大长度";
       }
       break;
     case "totop":     // 将一首音乐置顶，value：number--该音乐在原播放列表中的位置
@@ -35,10 +39,10 @@ const playListOperation = ( list, operation, value ) => {
     case "remove":    // 从播放列表中删除某一首音乐，value：number--该音乐在原播放列表中的位置
       new_list.splice(value, 1);
       break;
-    case "update":    // 完全更新播放列表，value：array--新的播放列表
+    case "update":    // 完全更新播放列表，value：array--新的播放列表，长度应小于最大长度 MAX_LENGTH
       new_list = JSON.parse(JSON.stringify(value));
-      if ( new_list.length > MAX_LENGTH ) 
-        return "overflow";
+      if ( new_list.length > MAX_LENGTH )
+        return "超过最大长度";
       break;
     default:
       console.error("No Such Operation!");
@@ -81,17 +85,19 @@ const chooseNextMusic = ({ list, currentIndex, operation=null, value=null }) => 
     switch ( operation ) {
       case "sequential":  // 按照播放列表顺序选择下一首音乐
         next_index = (currentIndex + 1) % play_list_length;
+        next_music = JSON.parse(JSON.stringify(list[next_index]));
         break;
       case "random":      // 在播放列表中随机挑选下一首音乐
         next_index = parseInt(Math.random() * play_list_length);
+        next_music = JSON.parse(JSON.stringify(list[next_index]));
         break;
       case "loop":        // 单曲循环播放
         next_index = currentIndex >= play_list_length ? 0 : currentIndex;
+        next_music = JSON.parse(JSON.stringify(musicStack[ptr]));
         break;
       default:
         console.error("Parameter Operation Error!");
     }
-    next_music = JSON.parse(JSON.stringify(list[next_index]));
   } else if ( typeof value === "object" ) {
     next_music = JSON.parse(JSON.stringify(value));
   } 
@@ -129,6 +135,7 @@ const switchToLastMusic = index => {
 };
 
 export {
+  MAX_LENGTH,
   playListOperation,
   storePlayList,
   initMusicStack,
